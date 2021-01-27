@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nuxt />
- <Header0>
+ <Header0 :theme="themes.dark">
    <template v-slot:logo>
      <img :src="displayPic('logoWhite.svg')" alt="logo">
    </template>
@@ -11,7 +11,7 @@
    <template v-slot:numberBlock>
    </template>
  </Header0>
-    <hero>
+    <hero :theme="themes.dark">
       <template v-slot:background></template>
       <template v-slot:text>
         <div>
@@ -24,11 +24,11 @@
       </template>
       <template v-slot:form></template>
       <template v-slot:hook>
-        <DynamicButton>Why Hoglund Law?<br>Click Here To Find Out</DynamicButton>
+        <DynamicButton :style="customStyles">Why Hoglund Law?<br>Click Here To Find Out</DynamicButton>
       </template>
     </hero>
     <div class="lightWrapper">
-    <FloatingBlock>
+    <FloatingBlock :theme="themes.dark" :style="customStyles">
       <template v-slot:text>
         <div>
           <h2>Minnesota’s Largest
@@ -43,7 +43,7 @@
         <img :src="displayPic('720.svg')" alt="720">
       </template>
     </FloatingBlock>
-    <Scroller>
+    <Scroller :theme="themes.light" :style="customStyles">
       <template v-slot:title>
         <h3>Why Hoglund Law?</h3>
       </template>
@@ -57,7 +57,7 @@
           <P>70+ Years Of Combined Bankruptcy Experience</P>
         </div>
         <div class="whiteLine"></div>
-        <ReviewBlock>
+        <ReviewBlock :theme="themes.dark" :style="customStyles">
           <template v-slot:left>
             <img :src="displayPic('googleLogo.svg')" alt="google logo">
           </template>
@@ -71,43 +71,43 @@
             </div>
           </template>
           <template v-slot:right>
-            <DynamicButton>Read More</DynamicButton>
+            <DynamicButton :theme="themes.dark" :style="customStyles" >Read More</DynamicButton>
           </template>
         </ReviewBlock>
       </div>
     </div>
     <div class="lightWrapper" :style="customStyles.lightBackground">
-      <ContactBlock>
+      <ContactBlock :theme="themes.light" :style="customStyles">
         <template v-slot:top>
           <img :src="displayPic('logoBlue.svg')" alt="logo">
         </template>
         <template v-slot:mid></template>
         <template v-slot:bot>
-          <DynamicButton>Or Message Us</DynamicButton>
+          <DynamicButton :theme="themes.light" :style="customStyles">Or Message Us</DynamicButton>
         </template>
       </ContactBlock>
-      <FloatingBlock></FloatingBlock>
+      <FloatingBlock :theme="themes.dark" :style="customStyles"></FloatingBlock>
       <div>
         <h4>The Call Is FREE! The Evaluation Is FREE!</h4>
         <h2>We Can Help!</h2>
       </div>
     </div>
     <div class="darkWrapper" :style="[customStyles.darkBackground, customStyles.darkText]">
-      <Testimonials></Testimonials>
+      <Testimonials :theme="themes.dark" :style="customStyles"></Testimonials>
       <div>
         <div class="accentLine"></div>
-        <ContactBlock>
+        <ContactBlock :theme="themes.dark" :style="customStyles">
           <template v-slot:top>
             <img :src="displayPic('logoWhite.svg')" alt="logo">
           </template>
           <template v-slot:mid></template>
           <template v-slot:bot>
-            <DynamicButton>Or Message Us</DynamicButton>
+            <DynamicButton :theme="themes.dark" :style="customStyles">Or Message Us</DynamicButton>
           </template>
         </ContactBlock>
         <div class="accentLine"></div>
       </div>
-      <DisclaimerAndCopyright></DisclaimerAndCopyright>
+      <DisclaimerAndCopyright :theme="themes.dark" :style="customStyles"></DisclaimerAndCopyright>
     </div>
   </div>
 </template>
