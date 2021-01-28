@@ -25,6 +25,32 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+#hero{
+  display: grid;
+  width: 100vw;
+  height: 80vh;
+  #heroBackgroundHolder{
+  grid-area: 1/1/1/1;
+    .background{
+      width: 100vw;
+      height: 80vh;
+      object-fit: cover;
+    }
+  }
+  #heroText{
+    grid-area: 1/1/1/1;
+    margin-left: 2rem;
+    align-self: center;
+  }
+  #heroFormHolder{
+    grid-area: 1/1/1/1;
+  }
+  #hookHolder{
+    grid-area: 1/1/1/1;
+   align-self: end;
+    justify-self: center;
 
+  }
+}
 </style>

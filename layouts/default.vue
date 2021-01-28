@@ -1,9 +1,9 @@
 <template>
   <div>
     <Nuxt />
- <Header0 :theme="themes.dark">
+ <Header0 :theme="themes.dark" :styles="customStyles">
    <template v-slot:logo>
-     <img :src="displayPic('logoWhite.svg')" alt="logo">
+     <img class="logo" :src="displayPic('logoWhite.svg')" alt="logo">
    </template>
    <template v-slot:middle>
     <h3>Free Immediate Case Evaluation</h3>
@@ -11,8 +11,11 @@
    <template v-slot:numberBlock>
    </template>
  </Header0>
+
     <hero :theme="themes.dark">
-      <template v-slot:background></template>
+      <template v-slot:background>
+        <img class="background" :src="displayPic('backgrounds/bg.png')" alt="background">
+      </template>
       <template v-slot:text>
         <div>
           <h1>$0 Down Bankruptcy ™*</h1>
@@ -27,8 +30,10 @@
         <DynamicButton :style="customStyles">Why Hoglund Law?<br>Click Here To Find Out</DynamicButton>
       </template>
     </hero>
+
     <div class="lightWrapper">
-    <FloatingBlock :theme="themes.dark" :style="customStyles">
+    <div class="topFloaterSpacer">
+     <FloatingBlock :theme="themes.dark" :styles="customStyles">
       <template v-slot:text>
         <div>
           <h2>Minnesota’s Largest
@@ -40,15 +45,19 @@
         </div>
       </template>
       <template v-slot:image>
-        <img :src="displayPic('720.svg')" alt="720">
+        <img class="score" :src="displayPic('720.svg')" alt="720">
       </template>
     </FloatingBlock>
+    </div>
+      <div class="scrollerSpacer">
     <Scroller :theme="themes.light" :style="customStyles">
       <template v-slot:title>
         <h3>Why Hoglund Law?</h3>
       </template>
     </Scroller>
+      </div>
     </div>
+
     <div class="darkWrapper" :style="customStyles.darkBackground">
       <div>
         <div>
@@ -57,45 +66,86 @@
           <P>70+ Years Of Combined Bankruptcy Experience</P>
         </div>
         <div class="whiteLine"></div>
-        <ReviewBlock :theme="themes.dark" :style="customStyles">
-          <template v-slot:left>
-            <img :src="displayPic('googleLogo.svg')" alt="google logo">
-          </template>
-          <template v-slot:mid>
-            <div>
-              <h4>220+ Google Reviews</h4>
-              <div id="starsHolder">
-                <img v-for="(star,index) in 4" :key="index" :src="displayPic('star.svg')" alt="star">
-                <img :src="displayPic('starHalf.svg')" alt="star">
+        <div id="reviewBlockHolder">
+          <ReviewBlock :theme="themes.dark" :style="customStyles">
+            <template v-slot:left>
+              <img :src="displayPic('googleLogo.svg')" alt="google logo">
+            </template>
+            <template v-slot:mid>
+              <div>
+                <h4>220+ Google Reviews</h4>
+                <div class="starsHolder">
+                  <img v-for="(star,index) in 4" :key="index" :src="displayPic('star.svg')" alt="star">
+                  <img :src="displayPic('starHalf.svg')" alt="star">
+                </div>
               </div>
-            </div>
-          </template>
-          <template v-slot:right>
-            <DynamicButton :theme="themes.dark" :style="customStyles" >Read More</DynamicButton>
-          </template>
-        </ReviewBlock>
+            </template>
+            <template v-slot:right>
+              <DynamicButton :theme="themes.dark" :style="customStyles" >Read More</DynamicButton>
+            </template>
+          </ReviewBlock>
+        </div>
       </div>
     </div>
+
     <div class="lightWrapper" :style="customStyles.lightBackground">
-      <ContactBlock :theme="themes.light" :style="customStyles">
-        <template v-slot:top>
-          <img :src="displayPic('logoBlue.svg')" alt="logo">
-        </template>
-        <template v-slot:mid></template>
-        <template v-slot:bot>
-          <DynamicButton :theme="themes.light" :style="customStyles">Or Message Us</DynamicButton>
-        </template>
-      </ContactBlock>
-      <FloatingBlock :theme="themes.dark" :style="customStyles"></FloatingBlock>
-      <div>
+      <div class="contactBlockHolder">
+        <ContactBlock :theme="themes.light" :style="customStyles">
+          <template v-slot:top>
+            <img :src="displayPic('logoBlue.svg')" alt="logo">
+          </template>
+          <template v-slot:mid></template>
+          <template v-slot:bot>
+            <DynamicButton :theme="themes.light" :style="customStyles">Or Message Us</DynamicButton>
+          </template>
+        </ContactBlock>
+      </div>
+
+      <div class="botFloaterSpacer">
+        <FloatingBlock :iteration="2" :theme="themes.dark" :style="customStyles">
+          <template v-slot:top>
+            <div>
+              <h2>
+                Get A Fresh Start?
+              </h2>
+              <h3>
+                Most clients are able to...
+              </h3>
+            </div>
+          </template>
+          <template v-slot:bot>
+          <ul>
+            <li>
+              Stop collection harassment.
+            </li>
+            <li>
+              Stop wage garnishment.
+            </li>
+            <li>
+              Stop home foreclosure.
+            </li>
+            <li>
+              Prevent auto repossession.
+            </li>
+            <li>
+              Lower their monthly payments.
+            </li>
+          </ul>
+          </template>
+        </FloatingBlock>
+      </div>
+
+      <div class="botCta">
         <h4>The Call Is FREE! The Evaluation Is FREE!</h4>
         <h2>We Can Help!</h2>
       </div>
     </div>
+
     <div class="darkWrapper" :style="[customStyles.darkBackground, customStyles.darkText]">
       <Testimonials :theme="themes.dark" :style="customStyles"></Testimonials>
       <div>
-        <div class="accentLine"></div>
+        <div class="accentLine" :style="customStyles.darkAccentBg"></div>
+        <div class="contactBlockHolder">
         <ContactBlock :theme="themes.dark" :style="customStyles">
           <template v-slot:top>
             <img :src="displayPic('logoWhite.svg')" alt="logo">
@@ -105,14 +155,15 @@
             <DynamicButton :theme="themes.dark" :style="customStyles">Or Message Us</DynamicButton>
           </template>
         </ContactBlock>
-        <div class="accentLine"></div>
+        </div>
+        <div class="accentLine" :style="customStyles.darkAccentBg"></div>
       </div>
       <DisclaimerAndCopyright :theme="themes.dark" :style="customStyles"></DisclaimerAndCopyright>
     </div>
+
   </div>
 </template>
-<style>
-</style>
+
 <script>
 import Header0 from '../components/Header0'
 import Hero from '../components/hero/hero'
@@ -172,3 +223,30 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+.topFloaterSpacer{
+  display: grid;
+  place-items: center;
+  margin: 6rem 0 3rem 0;
+}
+.botFloaterSpacer{
+  display: grid;
+  place-items: center;
+  margin: 6rem 0 3rem 0;
+}
+.contactBlockHolder{
+  display:grid;
+  place-items: center;
+}
+.darkWrapper{
+  padding: 0 2rem 0 2rem;
+}
+.lightWrapper{
+  padding: 0 2rem 0 2rem;
+}
+.accentLine{
+  height: 3px;
+  width: 100%;
+}
+</style>
