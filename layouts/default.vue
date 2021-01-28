@@ -9,6 +9,10 @@
     <h3>Free Immediate Case Evaluation</h3>
    </template>
    <template v-slot:numberBlock>
+     <div>
+       <h4>Call Now 123-456-7890</h4>
+       <DynamicButton :theme="themes.dark">Get Started Today!</DynamicButton>
+     </div>
    </template>
  </Header0>
 
@@ -27,7 +31,7 @@
       </template>
       <template v-slot:form></template>
       <template v-slot:hook>
-        <DynamicButton :style="customStyles">Why Hoglund Law?<br>Click Here To Find Out</DynamicButton>
+        <DynamicButton :theme="themes.dark">Why Hoglund Law?<br>Click Here To Find Out</DynamicButton>
       </template>
     </hero>
 
@@ -96,7 +100,7 @@
           </template>
           <template v-slot:mid></template>
           <template v-slot:bot>
-            <DynamicButton :theme="themes.light" :style="customStyles">Or Message Us</DynamicButton>
+            <DynamicButton :theme="themes.light">Or Message Us</DynamicButton>
           </template>
         </ContactBlock>
       </div>

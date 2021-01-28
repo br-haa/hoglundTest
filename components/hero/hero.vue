@@ -31,6 +31,7 @@ export default {
   width: 100vw;
   height: 80vh;
   #heroBackgroundHolder{
+    z-index: -1;
   grid-area: 1/1/1/1;
     .background{
       width: 100vw;
@@ -50,6 +51,7 @@ export default {
     grid-area: 1/1/1/1;
    align-self: end;
     justify-self: center;
+    margin-bottom: -2rem;
 
   }
 }
