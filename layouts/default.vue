@@ -18,9 +18,9 @@
       </template>
       <template v-slot:text>
         <div>
-          <h1>$0 Down Bankruptcy ™*</h1>
-          <h3>File Now - Pay Attorney Fees Later</h3>
-          <p>Free Confidential Phone Consultation With An
+          <h1 :style="customStyles.darkAccentText">$0 Down Bankruptcy ™*</h1>
+          <h3 :style="customStyles.darkText">File Now - Pay Attorney Fees Later</h3>
+          <p :style="customStyles.darkAccentText">Free Confidential Phone Consultation With An
             Experienced Bankruptcy Attorney
           </p>
         </div>
@@ -36,9 +36,9 @@
      <FloatingBlock :theme="themes.dark" :styles="customStyles">
       <template v-slot:text>
         <div>
-          <h2>Minnesota’s Largest
+          <h2 :style="customStyles.darkText">Minnesota’s Largest
             Bankruptcy Law Firm</h2>
-          <p>
+          <p :style="customStyles.darkAccentText">
             70+ Years Of Combined Experience
             Over 47,000 Clients Trusted Us
           </p>
@@ -58,12 +58,12 @@
       </div>
     </div>
 
-    <div class="darkWrapper" :style="customStyles.darkBackground">
-      <div>
+    <div class="darkWrapper experiencedWrapper" :style="customStyles.darkBackground">
+      <div id="experiencedHolder">
         <div>
-          <h3>One Of Minnesota's Most
+          <h3 :style="customStyles.darkText">One Of Minnesota's Most<br>
             Experienced Bankruptcy Law Firms</h3>
-          <P>70+ Years Of Combined Bankruptcy Experience</P>
+          <P :style="customStyles.darkAccentText">70+ Years Of Combined Bankruptcy Experience</P>
         </div>
         <div class="whiteLine"></div>
         <div id="reviewBlockHolder">
@@ -105,16 +105,16 @@
         <FloatingBlock :iteration="2" :theme="themes.dark" :style="customStyles">
           <template v-slot:top>
             <div>
-              <h2>
+              <h2 :style="customStyles.darkAccentText">
                 Get A Fresh Start?
               </h2>
-              <h3>
+              <h3 :style="customStyles.darkText">
                 Most clients are able to...
               </h3>
             </div>
           </template>
           <template v-slot:bot>
-          <ul>
+          <ul :style="customStyles.darkText">
             <li>
               Stop collection harassment.
             </li>
@@ -137,7 +137,7 @@
 
       <div class="botCta">
         <h4>The Call Is FREE! The Evaluation Is FREE!</h4>
-        <h2>We Can Help!</h2>
+        <h2 :style="customStyles.lightAccentText">We Can Help!</h2>
       </div>
     </div>
 
@@ -230,6 +230,26 @@ export default {
   place-items: center;
   margin: 6rem 0 3rem 0;
 }
+.experiencedWrapper{
+  display: grid;
+
+  #experiencedHolder{
+    display: grid;
+    place-items: center;
+    padding: 3rem;
+    height: 30rem;
+  }
+  .whiteLine{
+    height: 3px;
+    width: 80%;
+    background: white;
+  }
+  #reviewBlockHolder{
+    display: grid;
+    place-items: center;
+  }
+}
+
 .botFloaterSpacer{
   display: grid;
   place-items: center;

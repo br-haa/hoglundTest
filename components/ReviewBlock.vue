@@ -23,6 +23,8 @@ name: "ReviewBlock"
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
  justify-self: center;
+  align-items: center;
+  grid-gap: 1rem;
 }
 #left{
   width: 100px;
