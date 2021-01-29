@@ -28,13 +28,15 @@ export default {
 <style scoped lang="scss">
 #hero{
   display: grid;
-  width: 100vw;
+  width: 100%;
   height: 80vh;
+  box-sizing: border-box;
+
   #heroBackgroundHolder{
     z-index: -1;
   grid-area: 1/1/1/1;
     .background{
-      width: 100vw;
+      width: 100%;
       height: 80vh;
       object-fit: cover;
     }

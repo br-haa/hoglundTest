@@ -1,21 +1,21 @@
 <template>
 <div id="floatingBlock" :class="{threeColumn: iteration === 1, twoRow: iteration === 2}" :style="{background: `hsl(${theme.background.h},${theme.background.s}%,${theme.background.l}%)`}">
-  <div v-if="1" id="floatingLeft">
+  <div v-if="iteration === 1" id="floatingLeft">
     <slot name="text">
 
     </slot>
   </div>
-  <div v-if="1" id="floatingRight">
+  <div v-if=" iteration === 1" id="floatingRight">
     <slot name="image">
 
     </slot>
   </div>
-  <div v-if="2" id="floatingTop">
+  <div v-if="iteration === 2" id="floatingTop">
     <slot name="top">
 
     </slot>
   </div>
-  <div v-if="2" id="floatingBot">
+  <div v-if="iteration === 2" id="floatingBot">
     <slot name="bot">
 
     </slot>
@@ -47,12 +47,13 @@ export default {
 }
 .twoRow{
   grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
 }
 #floatingBlock{
   display: grid;
   grid-gap: 1rem;
-  width: 70%;
-  padding: 3rem;
+  width: 80%;
+  padding: 3rem 6rem 3rem 6rem;
   border-radius: 30px;
   box-sizing: border-box;
   #floatingLeft{

@@ -12,6 +12,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.contactBlock{
+  width: 40%;
+  margin: 3rem 0 3rem 0;
+}
 </style>

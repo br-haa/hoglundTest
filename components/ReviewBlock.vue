@@ -20,25 +20,29 @@ name: "ReviewBlock"
 
 <style scoped lang="scss">
 .reviewBlock{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
- justify-self: center;
+  display: flex;
   align-items: center;
+ justify-self: center;
   grid-gap: 1rem;
 }
 #left{
   width: 100px;
 }
 #mid{
-  grid-column: span 3;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  h4,h5,h3,h2,h1{
+    margin: 0;
+  }
 }
 .starsHolder{
   display: flex;
-  width: 100%;
+  width: 98%;
   justify-content: space-between;
   img{
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
   }
 }
 </style>

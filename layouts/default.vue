@@ -6,7 +6,7 @@
      <img class="logo" :src="displayPic('logoWhite.svg')" alt="logo">
    </template>
    <template v-slot:middle>
-    <h3>Free Immediate Case Evaluation</h3>
+    <h3 class="thinText">Free Immediate Case Evaluation</h3>
    </template>
    <template v-slot:numberBlock>
      <div>
@@ -77,7 +77,7 @@
             </template>
             <template v-slot:mid>
               <div>
-                <h4>220+ Google Reviews</h4>
+                <h3>220+ Google Reviews</h3>
                 <div class="starsHolder">
                   <img v-for="(star,index) in 4" :key="index" :src="displayPic('star.svg')" alt="star">
                   <img :src="displayPic('starHalf.svg')" alt="star">
@@ -94,6 +94,7 @@
 
     <div class="lightWrapper" :style="customStyles.lightBackground">
       <div class="contactBlockHolder">
+
         <ContactBlock :theme="themes.light" :style="customStyles">
           <template v-slot:top>
             <img :src="displayPic('logoBlue.svg')" alt="logo">
@@ -103,6 +104,7 @@
             <DynamicButton :theme="themes.light">Or Message Us</DynamicButton>
           </template>
         </ContactBlock>
+
       </div>
 
       <div class="botFloaterSpacer">
@@ -118,29 +120,33 @@
             </div>
           </template>
           <template v-slot:bot>
-          <ul :style="customStyles.darkText">
-            <li>
-              Stop collection harassment.
-            </li>
-            <li>
-              Stop wage garnishment.
-            </li>
-            <li>
-              Stop home foreclosure.
-            </li>
-            <li>
-              Prevent auto repossession.
-            </li>
-            <li>
-              Lower their monthly payments.
-            </li>
-          </ul>
+            <div id="freshListHolder">
+              <ul :style="customStyles.darkText">
+                <li>
+                  Stop collection harassment.
+                </li>
+                <li>
+                  Stop wage garnishment.
+                </li>
+                <li>
+                  Stop home foreclosure.
+                </li>
+              </ul>
+              <ul :style="customStyles.darkText">
+                <li>
+                  Prevent auto repossession.
+                </li>
+                <li>
+                  Lower their monthly payments.
+                </li>
+              </ul>
+            </div>
           </template>
         </FloatingBlock>
       </div>
 
-      <div class="botCta">
-        <h4>The Call Is FREE! The Evaluation Is FREE!</h4>
+      <div id="botCta">
+        <h3>The Call Is FREE! The Evaluation Is FREE!</h3>
         <h2 :style="customStyles.lightAccentText">We Can Help!</h2>
       </div>
     </div>
@@ -211,12 +217,13 @@ export default {
         lightAccentBg: {background: `hsl(${this.themes.light.accent.h},${this.themes.light.accent.s}%,${this.themes.light.accent.l}%)` },
         lightAccentText: {color: `hsl(${this.themes.light.accent.h},${this.themes.light.accent.s}%,${this.themes.light.accent.l}%)` },
         darkBackground: {
-          background: `hsl(${this.themes.dark.background.h},${this.themes.dark.background.s}%,${this.themes.dark.background.l}%)`,
+          background: `hsl(${this.themes.dark.background.h},${this.themes.dark.background.s}%,${this.themes.dark.background.l}%) url(${this.displayPic('backgrounds/lines.svg')})`,
+          backgroundSize:'cover',
           color: `hsl(${this.themes.dark.textColor.h},${this.themes.dark.textColor.s}%,${this.themes.dark.textColor.l}%)`
         },
         darkText: {color: `hsl(${this.themes.dark.textColor.h},${this.themes.dark.textColor.s}%,${this.themes.dark.textColor.l}%)`},
         darkAccentBg: {background: `hsl(${this.themes.dark.accent.h},${this.themes.dark.accent.s}%,${this.themes.dark.accent.l}%)` },
-        darkAccentText: {color: `hsl(${this.themes.dark.accent.h},${this.themes.dark.accent.s}%,${this.themes.dark.accent.l}%)` }
+        darkAccentText: {color: `hsl(${this.themes.dark.accent.h},${this.themes.dark.accent.s}%,${this.themes.dark.accent.l}%)` },
       }
     }
   },
@@ -229,6 +236,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.thinText{
+  font-weight: 200;
+
+}
 .topFloaterSpacer{
   display: grid;
   place-items: center;
@@ -254,14 +265,30 @@ export default {
   }
 }
 
+#freshListHolder{
+  display: flex;
+  grid-gap: 2rem;
+  li{
+    font-size:clamp(1.1rem, 10 * 1vw / 2.6, 1.8rem) ;
+    &::marker{
+      color: hsl(43, 93%, 52%);
+      content:'✔ '
+    }
+  }
+}
 .botFloaterSpacer{
   display: grid;
   place-items: center;
-  margin: 6rem 0 3rem 0;
+  margin: 3rem 0 3rem 0;
+}
+#botCta{
+  text-align: center;
+  margin: 3rem 0 3rem 0;
 }
 .contactBlockHolder{
   display:grid;
   place-items: center;
+  margin: 3rem 0 3rem 0;
 }
 .darkWrapper{
   padding: 0 2rem 0 2rem;
