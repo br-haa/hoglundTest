@@ -1,5 +1,5 @@
 <template>
-<div id="floatingBlock" :class="{threeColumn: iteration === 1, twoRow: iteration === 2}" :style="{background: `hsl(${theme.background.h},${theme.background.s}%,${theme.background.l}%)`}">
+<div id="floatingBlock" :class="{threeColumn: iteration === 1, twoRow: iteration === 2}" :style="background.darkTexture">
   <div v-if="iteration === 1" id="floatingLeft">
     <slot name="text">
 
@@ -37,6 +37,23 @@ export default {
     styles:{
       type: Object
     }
+  },
+  computed:{
+    background(){
+      return {
+        darkTexture: {
+          background: `hsl(${this.theme.background.h},${this.theme.background.s}%,${this.theme.background.l}%) url(${this.displayPic('backgrounds/lines.svg')})`,
+          backgroundSize:'200% auto, 100% auto',
+          backgroundPosition: 'center',
+          color: `hsl(${this.theme.textColor.h},${this.theme.textColor.s}%,${this.theme.textColor.l}%)`
+        },
+      }
+    }
+  },
+  methods:{
+    displayPic(pic) {
+      return require(`@/assets/img/${pic}`);
+    },
   }
 }
 </script>
@@ -56,6 +73,7 @@ export default {
   padding: 3rem 6rem 3rem 6rem;
   border-radius: 30px;
   box-sizing: border-box;
+  box-shadow: 0 0 5px 3px black;
   #floatingLeft{
     grid-column: span 2;
     display: grid;

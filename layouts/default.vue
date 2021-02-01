@@ -35,7 +35,7 @@
       </template>
     </hero>
 
-    <div class="lightWrapper">
+    <div class="lightWrapper" :style="customStyles.lightBackground">
     <div class="topFloaterSpacer">
      <FloatingBlock :theme="themes.dark" :styles="customStyles">
       <template v-slot:text>
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="darkWrapper experiencedWrapper" :style="customStyles.darkBackground">
+    <div class="darkWrapper experiencedWrapper" :style="customStyles.darkTexture">
       <div id="experiencedHolder">
         <div>
           <h3 :style="customStyles.darkText">One Of Minnesota's Most<br>
@@ -94,7 +94,6 @@
 
     <div class="lightWrapper" :style="customStyles.lightBackground">
       <div class="contactBlockHolder">
-
         <ContactBlock :theme="themes.light" :style="customStyles">
           <template v-slot:top>
             <img :src="displayPic('logoBlue.svg')" alt="logo">
@@ -151,7 +150,7 @@
       </div>
     </div>
 
-    <div class="darkWrapper" :style="[customStyles.darkBackground, customStyles.darkText]">
+    <div class="darkWrapper" :style="[customStyles.darkTexture, customStyles.darkText]">
       <Testimonials :theme="themes.dark" :style="customStyles"></Testimonials>
       <div>
         <div class="accentLine" :style="customStyles.darkAccentBg"></div>
@@ -210,15 +209,21 @@ export default {
     customStyles(){
       return {
         lightBackground: {
-          background: `hsl(${this.themes.light.background.h},${this.themes.light.background.s}%,${this.themes.light.background.l}%)`,
+          background: `hsl(${this.themes.light.background.h},${this.themes.light.background.s}%,${this.themes.light.background.l}%) url(${this.displayPic('backgrounds/bgWhite.svg')})`,
+          backgroundSize:'cover, 100% auto',
           color: `hsl(${this.themes.light.textColor.h},${this.themes.light.textColor.s}%,${this.themes.light.textColor.l}%)`
         },
         lightText: {color: `hsl(${this.themes.light.textColor.h},${this.themes.light.textColor.s}%,${this.themes.light.textColor.l}%)`},
         lightAccentBg: {background: `hsl(${this.themes.light.accent.h},${this.themes.light.accent.s}%,${this.themes.light.accent.l}%)` },
         lightAccentText: {color: `hsl(${this.themes.light.accent.h},${this.themes.light.accent.s}%,${this.themes.light.accent.l}%)` },
         darkBackground: {
+          background: `hsl(${this.themes.dark.background.h},${this.themes.dark.background.s}%,${this.themes.dark.background.l}%)`,
+          color: `hsl(${this.themes.dark.textColor.h},${this.themes.dark.textColor.s}%,${this.themes.dark.textColor.l}%)`
+        },
+        darkTexture: {
           background: `hsl(${this.themes.dark.background.h},${this.themes.dark.background.s}%,${this.themes.dark.background.l}%) url(${this.displayPic('backgrounds/lines.svg')})`,
-          backgroundSize:'cover',
+          backgroundSize:'200% auto, 100% auto',
+          backgroundPosition: 'center',
           color: `hsl(${this.themes.dark.textColor.h},${this.themes.dark.textColor.s}%,${this.themes.dark.textColor.l}%)`
         },
         darkText: {color: `hsl(${this.themes.dark.textColor.h},${this.themes.dark.textColor.s}%,${this.themes.dark.textColor.l}%)`},
@@ -243,7 +248,6 @@ export default {
 .topFloaterSpacer{
   display: grid;
   place-items: center;
-  margin: 6rem 0 3rem 0;
 }
 .experiencedWrapper{
   display: grid;
@@ -256,7 +260,7 @@ export default {
   }
   .whiteLine{
     height: 3px;
-    width: 80%;
+    width: 70%;
     background: white;
   }
   #reviewBlockHolder{
@@ -265,11 +269,17 @@ export default {
   }
 }
 
+.scrollerSpacer{
+  justify-self: center;
+  width: 80%;
+  margin-top: 3rem;
+}
+
 #freshListHolder{
   display: flex;
   grid-gap: 2rem;
   li{
-    font-size:clamp(1.1rem, 10 * 1vw / 2.6, 1.8rem) ;
+    font-size:clamp(1.1rem, 10 * 1vw / 2.6, 2.5rem) ;
     &::marker{
       color: hsl(43, 93%, 52%);
       content:'✔ '
@@ -279,7 +289,6 @@ export default {
 .botFloaterSpacer{
   display: grid;
   place-items: center;
-  margin: 3rem 0 3rem 0;
 }
 #botCta{
   text-align: center;
@@ -294,7 +303,8 @@ export default {
   padding: 0 2rem 0 2rem;
 }
 .lightWrapper{
-  padding: 0 2rem 0 2rem;
+  padding: 4rem 2rem 4rem 2rem;
+  display: grid;
 }
 .accentLine{
   height: 3px;
