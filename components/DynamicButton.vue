@@ -1,5 +1,5 @@
 <template>
-<button :style="{background: `hsl(${theme.accent.h},${theme.accent.s}%,${theme.accent.l}%)`}" @click="$emit('buttonClick')">
+<button class="button" :style="{background: `hsl(${theme.accent.h},${theme.accent.s}%,${theme.accent.l}%)`}" @click="$emit('buttonClick')">
 <slot></slot>
 </button>
 </template>

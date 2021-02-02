@@ -73,7 +73,7 @@ export default {
     border-radius: 10px;
     @media (max-width: 1080px) {
       align-self: end;
-      width: 90%;
+      width: 100%;
       margin-right: 0;
       justify-self: center;
     }
@@ -85,7 +85,8 @@ export default {
     justify-self: center;
     margin-bottom: -2rem;
     @media (max-width: 1080px) {
-      align-self: center;
+      align-self: start;
+      margin-top: 40vh;
     }
   }
 }

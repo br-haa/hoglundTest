@@ -22,11 +22,11 @@
       </template>
       <template v-slot:text>
         <div>
-          <h1 :style="customStyles.darkAccentText">$0 Down Bankruptcy ™*</h1>
-          <h3 :style="customStyles.darkText">File Now - Pay Attorney Fees Later</h3>
-          <h4 :style="customStyles.darkAccentText">Free Confidential Phone Consultation With<br>An
+          <h1 id="headline" :style="customStyles.darkAccentText">$0 Down Bankruptcy ™*</h1>
+          <h3 id="subHead" :style="customStyles.darkText">File Now - Pay Attorney Fees Later</h3>
+          <h5 id="blerb" :style="customStyles.darkAccentText">Free Confidential Phone Consultation With An
             Experienced Bankruptcy Attorney
-          </h4>
+          </h5>
         </div>
       </template>
       <template v-slot:form>
@@ -164,7 +164,7 @@
       <Testimonials :theme="themes.dark" :style="customStyles"></Testimonials>
       <div>
         <div class="accentLine" :style="customStyles.darkAccentBg"></div>
-        <div class="contactBlockHolder">
+        <div class="contactBlockHolderBottom">
         <ContactBlock :theme="themes.dark" :style="customStyles">
           <template v-slot:top>
             <img :src="displayPic('logoWhite.svg')" alt="logo">
@@ -253,9 +253,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.hideAtSmall{
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
 .thinText{
   font-weight: 200;
-
 }
 .topFloaterSpacer{
   display: grid;
@@ -274,11 +278,17 @@ export default {
     height: 3px;
     width: 70%;
     background: white;
+    @media (max-width: 1080px) {
+      width: 100%;
+    }
   }
   #reviewBlockHolder{
     display: grid;
     width: 70%;
     place-items: center;
+    @media (max-width: 1080px) {
+      width: 90%;
+    }
   }
 }
 
@@ -286,6 +296,9 @@ export default {
   justify-self: center;
   width: 80%;
   margin-top: 3rem;
+  @media (max-width: 1080px) {
+    width: 100%;
+  }
 }
 
 #freshListHolder{
@@ -318,12 +331,20 @@ export default {
 }
 #botCta{
   text-align: center;
-  margin: 3rem 0 3rem 0;
+  margin: 3rem 0 0 0;
   @media (max-width: 1080px) {
     margin: 1rem 0 1rem 0;
   }
 }
 .contactBlockHolder{
+  display:grid;
+  place-items: center;
+  margin: 0 0 3rem 0;
+  @media (max-width: 1080px) {
+    margin: 1rem 0 1rem 0;
+  }
+}
+.contactBlockHolderBottom{
   display:grid;
   place-items: center;
   margin: 3rem 0 3rem 0;

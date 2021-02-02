@@ -80,6 +80,7 @@ export default {
   box-shadow: 0 0 5px 3px black;
   @media (max-width: 1080px) {
     width: 98%;
+    justify-content: center;
   }
   #floatingLeft{
     grid-column: span 2;
@@ -90,6 +91,7 @@ export default {
     }
   }
   #floatingRight{
+    display: grid;
     .score{
     place-self: center;
     width: 80%;

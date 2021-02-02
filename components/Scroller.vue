@@ -50,6 +50,10 @@ export default {
   &:focus{
     outline: none;
   }
+  @media (max-width: 1080px) {
+    height: 60px;
+    width: 60px;
+  }
   .buttonArrow{
     display: block;
     clip-path: polygon(75% 0%, 100% 50%, 77% 100%, 37% 100%, 63% 51%, 40% 0);
@@ -71,6 +75,9 @@ export default {
   align-items: center;
   grid-gap: 1rem;
   margin-bottom: 3rem;
+  @media (max-width: 1080px) {
+    margin-bottom: 1rem;
+  }
   .titleLine{
     height: 3px;
     width: 70%;

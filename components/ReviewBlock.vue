@@ -26,6 +26,7 @@ name: "ReviewBlock"
   grid-gap: 1rem;
   @media (max-width: 1080px) {
     flex-wrap: wrap;
+    justify-content: center;
   }
 
 }

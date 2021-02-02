@@ -33,14 +33,16 @@ export default {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 5px 3px black;
+  @media (max-width: 1080px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .logo{
     width: 22vw;
     @media (max-width: 1080px) {
-      width: 99%;
+      width: 100%;
     }
   }
-  @media (max-width: 1080px) {
-    flex-wrap: wrap;
-  }
+
 }
 </style>
