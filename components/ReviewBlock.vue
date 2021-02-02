@@ -24,6 +24,10 @@ name: "ReviewBlock"
   align-items: center;
  justify-self: center;
   grid-gap: 1rem;
+  @media (max-width: 1080px) {
+    flex-wrap: wrap;
+  }
+
 }
 #left{
   width: 100px;
@@ -34,6 +38,7 @@ name: "ReviewBlock"
   height: 100%;
   h4,h5,h3,h2,h1{
     margin: 0;
+    white-space: nowrap;
   }
 }
 .starsHolder{

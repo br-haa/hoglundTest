@@ -10,7 +10,7 @@
    </template>
    <template v-slot:numberBlock>
      <div>
-       <h4>Call Now 123-456-7890</h4>
+       <h4>Call Now <span :style="customStyles.darkAccentText">123-456-7890</span></h4>
        <DynamicButton :theme="themes.dark">Get Started Today!</DynamicButton>
      </div>
    </template>
@@ -24,12 +24,20 @@
         <div>
           <h1 :style="customStyles.darkAccentText">$0 Down Bankruptcy ™*</h1>
           <h3 :style="customStyles.darkText">File Now - Pay Attorney Fees Later</h3>
-          <p :style="customStyles.darkAccentText">Free Confidential Phone Consultation With An
+          <h4 :style="customStyles.darkAccentText">Free Confidential Phone Consultation With<br>An
             Experienced Bankruptcy Attorney
-          </p>
+          </h4>
         </div>
       </template>
-      <template v-slot:form></template>
+      <template v-slot:form>
+        <form-controller
+        :theme="themes.dark"
+        :inline="true"
+        >
+          <p :style="customStyles.darkText">No Office Visit Necessary</p>
+          <h3 :style="customStyles.darkAccentText">Tag Line</h3>
+        </form-controller>
+      </template>
       <template v-slot:hook>
         <DynamicButton :theme="themes.dark">Why Hoglund Law?<br>Click Here To Find Out</DynamicButton>
       </template>
@@ -42,10 +50,10 @@
         <div>
           <h2 :style="customStyles.darkText">Minnesota’s Largest
             Bankruptcy Law Firm</h2>
-          <p :style="customStyles.darkAccentText">
-            70+ Years Of Combined Experience
+          <h5 :style="customStyles.darkAccentText">
+            70+ Years Of Combined Experience<br>
             Over 47,000 Clients Trusted Us
-          </p>
+          </h5>
         </div>
       </template>
       <template v-slot:image>
@@ -67,7 +75,7 @@
         <div>
           <h3 :style="customStyles.darkText">One Of Minnesota's Most<br>
             Experienced Bankruptcy Law Firms</h3>
-          <P :style="customStyles.darkAccentText">70+ Years Of Combined Bankruptcy Experience</P>
+          <h4 :style="customStyles.darkAccentText">70+ Years Of Combined Bankruptcy Experience</h4>
         </div>
         <div class="whiteLine"></div>
         <div id="reviewBlockHolder">
@@ -98,7 +106,9 @@
           <template v-slot:top>
             <img :src="displayPic('logoBlue.svg')" alt="logo">
           </template>
-          <template v-slot:mid></template>
+          <template v-slot:mid>
+            <h3 class="contactCallNow">Call Now <span :style="customStyles.lightAccentText">123-456-7890</span></h3>
+          </template>
           <template v-slot:bot>
             <DynamicButton :theme="themes.light">Or Message Us</DynamicButton>
           </template>
@@ -159,7 +169,9 @@
           <template v-slot:top>
             <img :src="displayPic('logoWhite.svg')" alt="logo">
           </template>
-          <template v-slot:mid></template>
+          <template v-slot:mid>
+            <h3 class="contactCallNow">Call Now <span :style="customStyles.darkAccentText">123-456-7890</span></h3>
+          </template>
           <template v-slot:bot>
             <DynamicButton :theme="themes.dark" :style="customStyles">Or Message Us</DynamicButton>
           </template>
@@ -265,6 +277,7 @@ export default {
   }
   #reviewBlockHolder{
     display: grid;
+    width: 70%;
     place-items: center;
   }
 }
@@ -278,11 +291,24 @@ export default {
 #freshListHolder{
   display: flex;
   grid-gap: 2rem;
+  flex-wrap: wrap;
   li{
     font-size:clamp(1.1rem, 10 * 1vw / 2.6, 2.5rem) ;
     &::marker{
       color: hsl(43, 93%, 52%);
       content:'✔ '
+    }
+  }
+  @media (max-width: 1080px) {
+    grid-gap: 0;
+    ul{
+      margin: 0;
+      padding-left: 6%;
+      li{
+        &:first-child{
+          margin-top: 0;
+        }
+      }
     }
   }
 }
@@ -293,18 +319,27 @@ export default {
 #botCta{
   text-align: center;
   margin: 3rem 0 3rem 0;
+  @media (max-width: 1080px) {
+    margin: 1rem 0 1rem 0;
+  }
 }
 .contactBlockHolder{
   display:grid;
   place-items: center;
   margin: 3rem 0 3rem 0;
+  @media (max-width: 1080px) {
+    margin: 1rem 0 1rem 0;
+  }
 }
 .darkWrapper{
-  padding: 0 2rem 0 2rem;
+  padding: 0 5% 0 5%;
 }
 .lightWrapper{
-  padding: 4rem 2rem 4rem 2rem;
+  padding: 4rem 5% 4rem 5%;
   display: grid;
+  @media (max-width: 1080px) {
+    padding: 1rem 5% 1rem 5%;
+  }
 }
 .accentLine{
   height: 3px;

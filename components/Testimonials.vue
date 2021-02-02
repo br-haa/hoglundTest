@@ -78,6 +78,12 @@ export default {
 }
 .review{
   display: grid;
+  @media (max-width: 1080px) {
+    grid-template-columns: 1fr !important;
+    .top{
+      grid-column: span 1 !important;
+    }
+  }
   .bot{
     border-right: white 3px solid;
     padding: 0 1rem 0 0;
@@ -86,6 +92,11 @@ export default {
       border: none !important;
       margin: 0 !important;
       padding: 0 !important;
+    }
+    @media (max-width: 1080px) {
+      padding: 0;
+      margin: 0;
+      border: none;
     }
   }
 

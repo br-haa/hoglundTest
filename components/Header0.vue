@@ -28,13 +28,19 @@ export default {
 
 <style scoped lang="scss">
 #header{
-  padding: 0.5rem 2rem 0.5rem 2rem;
+  padding: 0.5rem 5% 0.5rem 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 5px 3px black;
   .logo{
     width: 22vw;
+    @media (max-width: 1080px) {
+      width: 99%;
+    }
+  }
+  @media (max-width: 1080px) {
+    flex-wrap: wrap;
   }
 }
 </style>

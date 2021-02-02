@@ -14,7 +14,19 @@ export default {
 
 <style scoped lang="scss">
 .contactBlock{
-  width: 40%;
+  width: 40vw;
   margin: 3rem 0 3rem 0;
+  @media (max-width: 1080px) {
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+  }
+  .contactCallNow{
+    font-size: 3.5vw;
+    font-weight: bold !important;
+    text-align: center;
+    @media (max-width: 1080px) {
+      font-size: 8vw;
+    }
+  }
 }
 </style>

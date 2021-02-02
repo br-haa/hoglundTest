@@ -61,23 +61,33 @@ export default {
 <style scoped lang="scss">
 .threeColumn{
   grid-template-columns: 1fr 1fr 1fr;
+  @media  (max-width: 1080px){
+    grid-template-columns: 1fr;
+  }
 }
 .twoRow{
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr;
+
 }
 #floatingBlock{
   display: grid;
   grid-gap: 1rem;
   width: 80%;
-  padding: 3rem 6rem 3rem 6rem;
+  padding: 3rem 5% 3rem 5%;
   border-radius: 30px;
   box-sizing: border-box;
   box-shadow: 0 0 5px 3px black;
+  @media (max-width: 1080px) {
+    width: 98%;
+  }
   #floatingLeft{
     grid-column: span 2;
     display: grid;
     align-items: center;
+    @media  (max-width: 1080px){
+      grid-column: span 1;
+    }
   }
   #floatingRight{
     .score{
