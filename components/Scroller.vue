@@ -7,13 +7,13 @@
       <slot name="title"></slot>
       <div class="titleLine" :style="{background:`hsl(${theme.accent.h},${theme.accent.s}%,${theme.accent.l}%)`}"></div>
     </div>
-    <div id="scrollerHolder">
+    <div id="scrollerHolder" >
       <button class="scrollButton" id="leftButton" @click="move('back')">
       <span class="buttonArrow" :style="{background:`hsl(${theme.accent.h},${theme.accent.s}%,${theme.accent.l}%)`}">
 
       </span>
       </button>
-      <div class="textDisplay">
+      <div class="textDisplay" @click="move('front')">
         <transition name="slide" mode="out-in">
           <h2 :key="items[counter]">{{items[counter]}}</h2>
         </transition>
@@ -68,6 +68,9 @@ return{
         }
       }
     }
+  },
+  mounted() {
+    window.setInterval(this.move, 3500)
   }
 }
 </script>
@@ -151,13 +154,13 @@ return{
 }
 
 .slide-enter-active {
-  animation: fade 0.5s forwards;
+  animation: fade 1.4s forwards;
 }
 .slide-enter{
   opacity: 0;
 }
 .slide-leave-to {
-  animation: fade 0.5s reverse;
+  animation: fade 0.2s reverse;
 }
 @keyframes fade {
   from {
