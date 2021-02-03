@@ -38,7 +38,7 @@ export default {
   height: 80vh;
   box-sizing: border-box;
 @media (max-width: 1080px) {
-  height: 150vh;
+  height: 160vh;
 }
   #heroBackgroundHolder{
     z-index: -1;
@@ -55,7 +55,7 @@ export default {
     align-self: center;
     @media (max-width: 1080px) {
       align-self: start;
-      margin: 0 5% 0 5%;
+      margin: 5vh 5% 0 5%;
       h1{
         font-size: 1.8rem;
       }
@@ -86,9 +86,10 @@ export default {
     margin-bottom: -2rem;
     @media (max-width: 1080px) {
       align-self: start;
-      margin-top: 40vh;
+      margin-top: 35vh;
     }
   }
+
 }
 </style>
 <style lang="scss">
@@ -101,6 +102,18 @@ export default {
   }
   #Message{
     height: 100px;
+  }
+  #formTopText{
+    margin: 0;
+    @media (max-width: 640px) {
+      font-size: 1.5rem;
+    }
+  }
+  #formBotText{
+    margin: 0;
+    @media (max-width: 640px) {
+      font-size: 3rem;
+    }
   }
 }
 </style>

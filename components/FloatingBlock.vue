@@ -73,7 +73,7 @@ export default {
 #floatingBlock{
   display: grid;
   grid-gap: 1rem;
-  width: 80%;
+  width: 90%;
   padding: 3rem 5% 3rem 5%;
   border-radius: 30px;
   box-sizing: border-box;

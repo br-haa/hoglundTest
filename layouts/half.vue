@@ -1,72 +1,68 @@
 <template>
   <div>
     <Nuxt />
- <Header0 :theme="themes.dark" :styles="customStyles">
-   <template v-slot:logo>
-     <img class="logo" :src="displayPic('logoWhite.svg')" alt="logo">
-   </template>
-   <template v-slot:middle>
-    <h3 id="middleText" class="thinText">Free Immediate Case Evaluation</h3>
-   </template>
-   <template v-slot:numberBlock>
-     <div>
-       <h4 class="number">Call Now <span :style="customStyles.darkAccentText">123-456-7890</span></h4>
-       <DynamicButton :theme="themes.dark">Get Started Today!</DynamicButton>
-     </div>
-   </template>
- </Header0>
-
-    <hero :theme="themes.dark">
-      <template v-slot:background>
-        <img class="background" :src="displayPic('backgrounds/bg.png')" alt="background">
+    <Header0 :theme="themes.dark" :styles="customStyles">
+      <template v-slot:logo>
+        <img class="logo" :src="displayPic('logoWhite.svg')" alt="logo">
       </template>
-      <template v-slot:text>
+      <template v-slot:middle>
+        <h3 id="middleText" class="thinText">Free Immediate Case Evaluation</h3>
+      </template>
+      <template v-slot:numberBlock>
         <div>
-          <h1 id="headline" :style="customStyles.darkAccentText">$0 Down Bankruptcy ™*</h1>
-          <h3 id="subHead" :style="customStyles.darkText">File Now - Pay Attorney Fees Later</h3>
-          <h5 id="blerb" :style="customStyles.darkAccentText">Free Confidential Phone Consultation With An
-            Experienced Bankruptcy Attorney
-          </h5>
+          <h4 class="number">Call Now <span :style="customStyles.darkAccentText">123-456-7890</span></h4>
+          <DynamicButton :theme="themes.dark">Get Started Today!</DynamicButton>
         </div>
       </template>
-      <template v-slot:form>
-        <form-controller
-        :theme="themes.dark"
-        :inline="true"
-        >
-          <h5 id="formTopText" :style="customStyles.darkText">No Office Visit Necessary</h5>
-          <h2 id="formBotText" :style="customStyles.darkAccentText">Tag Line</h2>
-        </form-controller>
-      </template>
-      <template v-slot:hook>
-        <DynamicButton :theme="themes.dark">Why Hoglund Law?<br>Click Here To Find Out</DynamicButton>
-      </template>
-    </hero>
+    </Header0>
 
+  <hero1 :theme="themes.dark">
+    <template v-slot:background>
+      <img class="background" :src="displayPic('backgrounds/city.png')" alt="background">
+    </template>
+    <template v-slot:text>
+      <div id="heroTextGroup">
+        <h2 id="headline" :style="customStyles.darkAccentText">$0 Down Bankruptcy ™*</h2>
+        <h3 id="subHead" :style="customStyles.darkText">File Now - Pay Attorney Fees Later</h3>
+        <h5 id="blerb" :style="customStyles.darkAccentText">Free Confidential Phone Consultation<br>With An
+          Experienced Bankruptcy Attorney
+        </h5>
+      </div>
+    </template>
+    <template v-slot:hook>
+      <DynamicButton :theme="themes.dark">Why Hoglund Law?<br>Click Here To Find Out</DynamicButton>
+    </template>
+  </hero1>
+<div id="formBlock" :style="customStyles.darkTexture">
+  <form-controller :theme="themes.dark">
+    <h3 id="formTopText" :style="customStyles.darkText">No Office Visit Necessary</h3>
+    <h2 id="formBotText" :style="customStyles.darkAccentText">Tag Line</h2>
+  </form-controller>
+</div>
     <div class="lightWrapper" :style="customStyles.lightBackground">
-    <div class="topFloaterSpacer">
-     <FloatingBlock :theme="themes.dark" :styles="customStyles">
-      <template v-slot:text>
-        <div>
-          <h2 :style="customStyles.darkText">Minnesota’s Largest
-            Bankruptcy Law Firm</h2>
-          <h5 :style="customStyles.darkAccentText">
-            70+ Years Of Combined Experience<br>
-            Over 47,000 Clients Trusted Us
-          </h5>
-        </div>
-      </template>
-      <template v-slot:image>
-        <img class="score" :src="displayPic('720.svg')" alt="720">
-      </template>
-    </FloatingBlock>
-    </div>
+      <div class="topFloaterSpacer">
+        <FloatingBlock :theme="themes.dark" :styles="customStyles">
+          <template v-slot:text>
+            <div>
+              <h2 :style="customStyles.darkText">Minnesota’s Largest
+                Bankruptcy Law Firm</h2>
+              <h5 :style="customStyles.darkAccentText">
+                70+ Years Of Combined Experience<br>
+                Over 47,000 Clients Trusted Us
+              </h5>
+            </div>
+          </template>
+          <template v-slot:image>
+            <img class="score" :src="displayPic('720.svg')" alt="720">
+          </template>
+        </FloatingBlock>
+      </div>
       <div class="scrollerSpacer">
-    <Scroller :theme="themes.light" :style="customStyles">
-      <template v-slot:title>
-        <h3>Why Hoglund Law?</h3>
-      </template>
-    </Scroller>
+        <Scroller :theme="themes.light" :style="customStyles">
+          <template v-slot:title>
+            <h3>Why Hoglund Law?</h3>
+          </template>
+        </Scroller>
       </div>
     </div>
 
@@ -167,17 +163,17 @@
       <div>
         <div class="accentLine" :style="customStyles.darkAccentBg"></div>
         <div class="contactBlockHolderBottom">
-        <ContactBlock :theme="themes.dark" :style="customStyles">
-          <template v-slot:top>
-            <img :src="displayPic('logoWhite.svg')" alt="logo">
-          </template>
-          <template v-slot:mid>
-            <h3 class="contactCallNow">Call Now <span :style="customStyles.darkAccentText">123-456-7890</span></h3>
-          </template>
-          <template v-slot:bot>
-            <DynamicButton :theme="themes.dark" :style="customStyles">Or Message Us</DynamicButton>
-          </template>
-        </ContactBlock>
+          <ContactBlock :theme="themes.dark" :style="customStyles">
+            <template v-slot:top>
+              <img :src="displayPic('logoWhite.svg')" alt="logo">
+            </template>
+            <template v-slot:mid>
+              <h3 class="contactCallNow">Call Now <span :style="customStyles.darkAccentText">123-456-7890</span></h3>
+            </template>
+            <template v-slot:bot>
+              <DynamicButton :theme="themes.dark" :style="customStyles">Or Message Us</DynamicButton>
+            </template>
+          </ContactBlock>
         </div>
         <div class="accentLine" :style="customStyles.darkAccentBg"></div>
       </div>
@@ -197,8 +193,9 @@ import ContactBlock from '../components/ContactBlock'
 import Testimonials from '../components/Testimonials'
 import DisclaimerAndCopyright from '../components/DisclaimerAndCopyright'
 import DynamicButton from '../components/DynamicButton'
+import Hero1 from '../components/hero/hero1'
 export default {
-  components: { DynamicButton, DisclaimerAndCopyright, Testimonials, ContactBlock, ReviewBlock, Scroller, FloatingBlock, Hero, Header0 },
+  components: { Hero1, DynamicButton, DisclaimerAndCopyright, Testimonials, ContactBlock, ReviewBlock, Scroller, FloatingBlock, Hero, Header0 },
   data(){
     return{
       themes:{
@@ -255,6 +252,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+#formBlock{
+  padding: 5rem 10% 4rem 10%;
+}
+
 .showAtSmall{
   display: none;
   @media (max-width: 640px) {

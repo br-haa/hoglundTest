@@ -43,6 +43,16 @@ export default {
       width: 100%;
     }
   }
-
+  #middleText{
+    @media (max-width: 640px) {
+      font-size: 1.45rem;
+      margin-bottom: 0;
+    }
+  }
+.number{
+  @media (max-width: 640px) {
+    font-size: 1.85rem;
+  }
+}
 }
 </style>

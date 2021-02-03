@@ -26,6 +26,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+#disclaimer{
+  padding-bottom: 2rem;
+}
 
 </style>
