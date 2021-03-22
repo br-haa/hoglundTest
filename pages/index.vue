@@ -3,7 +3,6 @@
 
 <script>
 export default {
-
 }
 </script>
 
@@ -27,7 +26,7 @@ label,
 textarea,
 a,
 input {
-  font-family: IBM Plex Sans, serif;
+  font-family: IBM Plex Sans, sans-serif;
 }
 
 h1 {
@@ -57,7 +56,7 @@ h5 {
 }
 p,
 li,
-button,
+button
 {
   margin: $textMargin 0 $textMargin 0;
   font-size: clamp(0.8rem, 10 * 1vw / 2.8, 1.2rem);

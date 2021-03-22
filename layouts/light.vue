@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <Nuxt />
@@ -16,7 +17,7 @@
       </template>
     </Header0>
 
-  <hero1 :theme="$store.state.themes.dark">
+  <hero1 :theme="$store.state.themes.light">
     <template v-slot:background>
       <img class="background" :src="displayPic('backgrounds/city.png')" alt="background">
     </template>

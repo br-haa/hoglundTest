@@ -14,7 +14,8 @@
     "haa-form": "^0.2.13",
     "nuxt": "^2.14.12",
     "sass": "^1.32.5",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "ufo": "^0.6.10"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.1.2",
