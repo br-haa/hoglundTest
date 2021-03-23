@@ -1,9 +1,9 @@
 <template>
-<div id="header" :style="styles.darkBackground">
+<div id="header" :style="styles.darkBackground" :class="{ scroll: !atTop}">
   <slot name="logo">
 
   </slot>
-  <slot name="middle">
+  <slot name="middle" v-if="atTop">
 
   </slot>
   <slot name="numberBlock">
@@ -21,6 +21,14 @@ export default {
     },
     styles:{
       type: Object
+    },
+    atTop: {
+      type: Boolean,
+      default: true
+    }
+  },
+ data() {
+    return {
     }
   }
 }
@@ -29,10 +37,16 @@ export default {
 <style scoped lang="scss">
 #header{
   padding: 0.5rem 5% 0.5rem 5%;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 120px;
+  z-index: 600;
   box-shadow: 0 0 5px 3px black;
+  width: 100%;
+  position: fixed;
+  transition: 0.3s;
   @media (max-width: 1080px) {
     flex-wrap: wrap;
     justify-content: center;
@@ -54,5 +68,10 @@ export default {
     font-size: 1.85rem;
   }
 }
+}
+.scroll {
+  height: 70px !important;
+  background: hsla(217, 20%, 10%, 0.7) !important;
+  backdrop-filter: blur(5px);
 }
 </style>

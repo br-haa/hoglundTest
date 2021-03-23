@@ -7,49 +7,46 @@
         <img class="logo" :src="displayPic('logoWhite.svg')" alt="logo">
       </template>
       <template v-slot:middle>
-        <h3 id="middleText" class="thinText">Free Immediate Case Evaluation</h3>
+        <h3 id="middleText" class="thinText">{{content.header.middleText}}</h3>
       </template>
       <template v-slot:numberBlock>
         <div>
           <h4 class="number">Call Now <span :style="customStyles.darkAccentText">123-456-7890</span></h4>
-          <DynamicButton :theme="$store.state.themes.dark">Get Started Today!</DynamicButton>
+          <DynamicButton :theme="$store.state.themes.dark">{{content.header.buttonText}}</DynamicButton>
         </div>
       </template>
     </Header0>
 
   <hero1 :theme="$store.state.themes.light">
     <template v-slot:background>
-      <img class="background" :src="displayPic('backgrounds/city.png')" alt="background">
+      <img class="background" style="width: 50%; objectPosition: 20% 30%" :src="displayPic('backgrounds/Robert.png')" alt="background">
     </template>
     <template v-slot:text>
       <div id="heroTextGroup">
-        <h2 id="headline" :style="customStyles.darkAccentText">$0 Down Bankruptcy ™*</h2>
-        <h3 id="subHead" :style="customStyles.darkText">File Now - Pay Attorney Fees Later</h3>
-        <h5 id="blerb" :style="customStyles.darkAccentText">Free Confidential Phone Consultation<br>With An
-          Experienced Bankruptcy Attorney
-        </h5>
+        <h2 id="headline" :style="customStyles.lightAccentText">{{content.hero.headline}}</h2>
+        <h3 id="subHead" :style="customStyles.lightText">{{content.hero.subhead}}</h3>
+        <h5 id="blerb" :style="customStyles.lightAccentText">{{content.hero.blerb}} </h5>
       </div>
     </template>
     <template v-slot:hook>
-      <DynamicButton :theme="$store.state.themes.dark">Why Hoglund Law?<br>Click Here To Find Out</DynamicButton>
+      <DynamicButton :theme="$store.state.themes.dark">{{content.hero.whyButton}}</DynamicButton>
     </template>
   </hero1>
+
 <div id="formBlock" :style="customStyles.darkTexture">
   <form-controller :theme="$store.state.themes.dark">
-    <h3 id="formTopText" :style="customStyles.darkText">No Office Visit Necessary</h3>
-    <h2 id="formBotText" :style="customStyles.darkAccentText">Tag Line</h2>
+    <h3 id="formTopText" :style="customStyles.darkText">{{content.form.headline}}</h3>
+    <h2 id="formBotText" :style="customStyles.darkAccentText">{{content.form.subhead}}</h2>
   </form-controller>
 </div>
+
     <div class="lightWrapper" :style="customStyles.lightBackground">
       <div class="topFloaterSpacer">
         <FloatingBlock :theme="$store.state.themes.dark" :styles="customStyles">
           <template v-slot:text>
             <div>
-              <h2 :style="customStyles.darkText">Minnesota’s Largest
-                Bankruptcy Law Firm</h2>
-              <h5 :style="customStyles.darkAccentText">
-                70+ Years Of Combined Experience<br>
-                Over 47,000 Clients Trusted Us
+              <h2 :style="customStyles.darkText">{{content.largestBlock.headline}}</h2>
+              <h5 id="largestSubhead" :style="customStyles.darkAccentText"> {{content.largestBlock.subhead}}    
               </h5>
             </div>
           </template>
@@ -61,7 +58,7 @@
       <div class="scrollerSpacer">
         <Scroller :theme="$store.state.themes.light" :style="customStyles">
           <template v-slot:title>
-            <h3>Why Hoglund Law?</h3>
+            <h3>{{content.scroller.title}}</h3>
           </template>
         </Scroller>
       </div>
@@ -69,10 +66,9 @@
 
     <div class="darkWrapper experiencedWrapper" :style="customStyles.darkTexture">
       <div id="experiencedHolder">
-        <div>
-          <h3 :style="customStyles.darkText">One Of Minnesota's Most<br>
-            Experienced Bankruptcy Law Firms</h3>
-          <h4 :style="customStyles.darkAccentText">70+ Years Of Combined Bankruptcy Experience</h4>
+        <div class="experiencedText">
+          <h3 :style="customStyles.darkText">{{content.experienced.headline}}</h3>
+          <h4 :style="customStyles.darkAccentText">{{content.experienced.subhead}}</h4>
         </div>
         <div class="whiteLine"></div>
         <div id="reviewBlockHolder">
@@ -82,7 +78,7 @@
             </template>
             <template v-slot:mid>
               <div>
-                <h3>220+ Google Reviews</h3>
+                <h3>{{content.experienced.reviewAmount}} Google Reviews</h3>
                 <div class="starsHolder">
                   <img v-for="(star,index) in 4" :key="index" :src="displayPic('star.svg')" alt="star">
                   <img :src="displayPic('starHalf.svg')" alt="star">
@@ -90,7 +86,7 @@
               </div>
             </template>
             <template v-slot:right>
-              <DynamicButton :theme="$store.state.themes.dark" :style="customStyles" >Read More</DynamicButton>
+              <DynamicButton :theme="$store.state.themes.dark" :style="customStyles" >{{content.experienced.buttonText}}</DynamicButton>
             </template>
           </ReviewBlock>
         </div>
@@ -107,7 +103,7 @@
             <h3 class="contactCallNow">Call Now <span :style="customStyles.lightAccentText">123-456-7890</span></h3>
           </template>
           <template v-slot:bot>
-            <DynamicButton :theme="$store.state.themes.light">Or Message Us</DynamicButton>
+            <DynamicButton :theme="$store.state.themes.light">{{content.cta.buttonText}}</DynamicButton>
           </template>
         </ContactBlock>
 
@@ -128,24 +124,8 @@
           <template v-slot:bot>
             <div id="freshListHolder">
               <ul :style="customStyles.darkText">
-                <li>
-                  Stop collection harassment.
-                </li>
-                <li>
-                  Stop wage garnishment.
-                </li>
-              </ul>
-              <ul :style="customStyles.darkText">
-                <li>
-                  Stop home foreclosure.
-                </li>
-                <li>
-                  Prevent auto repossession.
-                </li>
-              </ul>
-              <ul :style="customStyles.darkText">
-                <li>
-                  Lower their monthly payments.
+                <li v-for="item in content.fresh.list" :key="item">
+                  {{item}}
                 </li>
               </ul>
             </div>
@@ -154,8 +134,8 @@
       </div>
 
       <div id="botCta">
-        <h3>The Call Is FREE! <br class="showAtSmall"> The Evaluation Is FREE!</h3>
-        <h2 :style="customStyles.lightAccentText">We Can Help!</h2>
+        <h3>The Call Is FREE! <br class="showAtSmall"> {{content.help.headline}}</h3>
+        <h2 :style="customStyles.lightAccentText">{{content.help.subhead}}</h2>
       </div>
     </div>
 
@@ -202,7 +182,7 @@ export default {
     }
   },
   computed:{
-    customStyles(){
+    customStyles(){ // super readable destructure of theme code... makes it a lot shorter tho
       const {h:dh, s:ds, l:dl, a:da} = this.$store.state.themes.dark.hsla;
       const {h:dth,s:dts,l:dtl,a:dta} = this.$store.state.themes.dark.textColor;
       const {h:dah,s:das,l:dal,a:daa} = this.$store.state.themes.dark.accent;
@@ -234,6 +214,9 @@ export default {
         darkAccentBg: {background: `hsl(${dah},${das}%,${dal}%)` },
         darkAccentText: {color: `hsl(${dah},${das}%,${dal}%)` },
       }
+    },
+    content(x) {
+      return this.$store.state.content
     }
   },
   methods:{
@@ -268,6 +251,9 @@ export default {
   display: grid;
   place-items: center;
 }
+#largestSubhead {
+  max-width: 400px;
+}
 .experiencedWrapper{
   display: grid;
 
@@ -276,6 +262,9 @@ export default {
     place-items: center;
     padding: 3rem;
     height: 30rem;
+    .experiencedText {
+      max-width: 840px;
+    }
     @media (max-width: 1080px) {
       padding: 0;
     }
@@ -308,9 +297,12 @@ export default {
 }
 
 #freshListHolder{
+  ul {
+  width: 100%;
   display: flex;
-  grid-gap: 2rem;
+  column-gap: 5rem;
   flex-wrap: wrap;
+  }
   li{
     font-size:clamp(1.1rem, 10 * 1vw / 2.6, 1.85rem) ;
     &::marker{

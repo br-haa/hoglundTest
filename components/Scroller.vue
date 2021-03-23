@@ -15,7 +15,7 @@
       </button>
       <div class="textDisplay" @click="move('front')">
         <transition name="slide" mode="out-in">
-          <h2 :key="items[counter]">{{items[counter]}}</h2>
+          <h2 :key="this.$store.state.content.scroller.list[counter]">{{this.$store.state.content.scroller.list[counter]}}</h2>
         </transition>
       </div>
       <button class="scrollButton" id="rightButton" @click="move('front')">
@@ -52,16 +52,20 @@ return{
       type: Object
     }
   },
+  computed: {
+  
+  },
   methods:{
     move(direction){
+      const items = this.$store.state.content.scroller.list
       if(direction === 'back'){
         if(this.counter === 0){
-          this.counter = this.items.length - 1
+          this.counter = items.length - 1
         } else{
           this.counter --
         }
       } else {
-        if(this.counter === this.items.length - 1){
+        if(this.counter === items.length - 1){
           this.counter = 0
         } else{
           this.counter ++
