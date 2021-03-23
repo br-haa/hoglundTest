@@ -1,6 +1,6 @@
 export const state = () => ({
         light:{
-          hsla:{h:217,s:73,l:15,a:1},
+          hsla:{h:217,s:20,l:85,a:1},
           accent:{h:197, s:100, l:46, a:1},
           background:{h:197, s:10, l:100, a:1},
           textColor:{h:217, s:87, l:6, a:1},

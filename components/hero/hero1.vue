@@ -3,7 +3,7 @@
     <div id="heroBackgroundHolder">
       <slot name="background"></slot>
     </div>
-    <div id="heroText" :style="{background: `hsl(${this.theme.hsla.h},${this.theme.hsla.s}%,${this.theme.hsla.l}%)` }">
+    <div id="heroText" :style="{background: `linear-gradient(to right, hsl(${hsl.h},${hsl.s}%,${hsl.l}%), hsl(${hsl.h},${hsl.s}%,${hsl.l-20}%))` }">
       <slot name="text">
 
       </slot>
@@ -20,8 +20,14 @@ export default {
   props:{
     theme:{
       type: Object
+    },
+  },
+    computed: {
+     hsl() {
+      const {h,s,l} = this.theme.hsla;
+      return {h,s,l}
+     }
     }
-  }
 }
 </script>
 
@@ -29,8 +35,9 @@ export default {
 #hero{
   display: grid;
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   box-sizing: border-box;
+  padding: 100px 0 0 0;
   @media (max-width: 1080px) {
     height: 65vh;
   }
@@ -58,6 +65,9 @@ export default {
     align-items: center;
     #heroTextGroup{
       margin-top: -7rem;
+      #blerb {
+        max-width: 500px;
+      }
     }
     @media (max-width: 1080px) {
       align-items: start;
@@ -95,6 +105,7 @@ export default {
     align-self: end;
     justify-self: center;
     margin-bottom: -2rem;
+    max-width: 300px;
 
   }
 
