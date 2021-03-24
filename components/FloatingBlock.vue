@@ -68,7 +68,15 @@ export default {
 .twoRow{
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr;
-
+  @media  (max-width: 1080px){
+    justify-items: center;
+  }
+  #floatingBot {
+    @media (max-width: 1080px) {
+      display: grid;
+      justify-items: center;
+    }
+  }
 }
 #floatingBlock{
   display: grid;
@@ -95,7 +103,11 @@ export default {
     .score{
     place-self: center;
     width: 80%;
+    @media  (max-width: 1080px){
+      width: 80%;
+    }
   }
+
   }
 }
 </style>

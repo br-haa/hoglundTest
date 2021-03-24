@@ -7,6 +7,7 @@ hero: {
     headline: `$0 Down Bankruptcy ™*`,
     subhead: `File Now - Pay Attorney Fees Later`,
     blerb: `Free Confidential Phone Consultation With An Experienced Bankruptcy Attorney`,
+    left: `We're Here To Help`,
     whyButton: `Why Hoglund Law? Click Here To Find Out`,
 },
 form: {

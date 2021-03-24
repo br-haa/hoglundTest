@@ -1,8 +1,7 @@
-
 <template>
   <div>
     <Nuxt />
-    <Header0 :theme="$store.state.themes.dark" :styles="customStyles">
+    <Header0 :theme="$store.state.themes.dark" :styles="customStyles" :atTop="atTop" >
       <template v-slot:logo>
         <img class="logo" :src="displayPic('logoWhite.svg')" alt="logo">
       </template>
@@ -10,8 +9,8 @@
         <h3 id="middleText" class="thinText">{{content.header.middleText}}</h3>
       </template>
       <template v-slot:numberBlock>
-        <div>
-          <h4 class="number">Call Now <span :style="customStyles.darkAccentText">123-456-7890</span></h4>
+        <div id="headerContactBlock" :class="{top: !atTop}">
+          <h4 class="number"><span :class="{cnTop: !atTop}">Call Now</span><span :style="customStyles.darkAccentText">123-456-7890</span></h4>
           <DynamicButton :theme="$store.state.themes.dark">{{content.header.buttonText}}</DynamicButton>
         </div>
       </template>
@@ -19,7 +18,12 @@
 
   <hero1 :theme="$store.state.themes.light">
     <template v-slot:background>
-      <img class="background" style="width: 50%; objectPosition: 20% 30%" :src="displayPic('backgrounds/Robert.png')" alt="background">
+      <img class="backgroundLight" :src="displayPic('backgrounds/Robert.png')" alt="background">
+    </template>
+    <template v-slot:leftText>
+      <div>
+        <h3>{{ content.hero.left }}</h3>
+      </div>
     </template>
     <template v-slot:text>
       <div id="heroTextGroup">
@@ -33,14 +37,14 @@
     </template>
   </hero1>
 
-<div id="formBlock" :style="customStyles.darkTexture">
+<article id="formBlock" :style="customStyles.darkTexture">
   <form-controller :theme="$store.state.themes.dark">
     <h3 id="formTopText" :style="customStyles.darkText">{{content.form.headline}}</h3>
     <h2 id="formBotText" :style="customStyles.darkAccentText">{{content.form.subhead}}</h2>
   </form-controller>
-</div>
+</article>
 
-    <div class="lightWrapper" :style="customStyles.lightBackground">
+    <article class="lightWrapper" :style="customStyles.lightBackground">
       <div class="topFloaterSpacer">
         <FloatingBlock :theme="$store.state.themes.dark" :styles="customStyles">
           <template v-slot:text>
@@ -62,9 +66,9 @@
           </template>
         </Scroller>
       </div>
-    </div>
+    </article>
 
-    <div class="darkWrapper experiencedWrapper" :style="customStyles.darkTexture">
+    <article class="darkWrapper experiencedWrapper" :style="customStyles.darkTexture">
       <div id="experiencedHolder">
         <div class="experiencedText">
           <h3 :style="customStyles.darkText">{{content.experienced.headline}}</h3>
@@ -91,9 +95,9 @@
           </ReviewBlock>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="lightWrapper" :style="customStyles.lightBackground">
+    <article class="lightWrapper" :style="customStyles.lightBackground">
       <div class="contactBlockHolder">
         <ContactBlock :theme="$store.state.themes.light" :style="customStyles">
           <template v-slot:top>
@@ -106,10 +110,10 @@
             <DynamicButton :theme="$store.state.themes.light">{{content.cta.buttonText}}</DynamicButton>
           </template>
         </ContactBlock>
+        </div>
+      </article>
 
-      </div>
-
-      <div class="botFloaterSpacer">
+      <article class="botFloaterSpacer">
         <FloatingBlock :iteration="2" :theme="$store.state.themes.dark" :style="customStyles">
           <template v-slot:top>
             <div>
@@ -131,15 +135,14 @@
             </div>
           </template>
         </FloatingBlock>
-      </div>
+      </article>
 
-      <div id="botCta">
+      <article id="botCta">
         <h3>The Call Is FREE! <br class="showAtSmall"> {{content.help.headline}}</h3>
         <h2 :style="customStyles.lightAccentText">{{content.help.subhead}}</h2>
-      </div>
-    </div>
+    </article>
 
-    <div class="darkWrapper" :style="[customStyles.darkTexture, customStyles.darkText]">
+    <article class="darkWrapper" :style="[customStyles.darkTexture, customStyles.darkText]">
       <Testimonials :theme="$store.state.themes.dark" :style="customStyles"></Testimonials>
       <div>
         <div class="accentLine" :style="customStyles.darkAccentBg"></div>
@@ -159,7 +162,7 @@
         <div class="accentLine" :style="customStyles.darkAccentBg"></div>
       </div>
       <DisclaimerAndCopyright :theme="$store.state.themes.dark" :style="customStyles"></DisclaimerAndCopyright>
-    </div>
+    </article>
 
   </div>
 </template>
@@ -179,6 +182,7 @@ export default {
   components: { Hero1, DynamicButton, DisclaimerAndCopyright, Testimonials, ContactBlock, ReviewBlock, Scroller, FloatingBlock, Hero, Header0 },
   data(){
     return{
+      atTop: true,
     }
   },
   computed:{
@@ -223,7 +227,20 @@ export default {
     displayPic(pic) {
       return require(`@/assets/img/${pic}`);
     },
-  }
+    checkHeader() {
+      // this.atTop = Math.round(window.scrollY) < this.height;
+      const now = Math.round(window.scrollY)
+      if (now > this.thn) {
+        this.atTop = now <= 100
+      } else if (now < this.thn) {
+        this.atTop = true
+      }
+      this.thn = now
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.checkHeader)
+  },
 }
 </script>
 
@@ -254,6 +271,28 @@ export default {
 #largestSubhead {
   max-width: 400px;
 }
+#headerContactBlock {
+  @media (max-width: 1080px) {
+    width: 100%;
+  }
+}
+  .top {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    button {
+      max-width: 400px;
+      @media (max-width: 1080px) {
+        max-width: 130px;
+        padding: 0;
+      }
+    }
+  }
+  .cnTop {
+    @media (max-width: 1080px) {
+      display: none;
+    }
+  }
 .experiencedWrapper{
   display: grid;
 
@@ -312,6 +351,7 @@ export default {
   }
   @media (max-width: 1080px) {
     grid-gap: 0;
+    width: 80%;
     ul{
       margin: 0;
       padding-left: 6%;

@@ -3,7 +3,11 @@
     <div id="heroBackgroundHolder">
       <slot name="background"></slot>
     </div>
-    <div id="heroText" :style="{background: `linear-gradient(to right, hsl(${hsl.h},${hsl.s}%,${hsl.l}%), hsl(${hsl.h},${hsl.s}%,${hsl.l-20}%))` }">
+    <div id="leftText" :style="{background: `hsla(${accent.h},${accent.s}%,${accent.l}%,${0.7})`}">
+      <slot name="leftText">
+      </slot>
+    </div>
+    <div id="heroText" :style="{background: `linear-gradient(to right, hsl(${hsl.h},${hsl.s}%,${hsl.l}%), hsl(${hsl.h},${hsl.s}%,${hsl.l-10}%))` }">
       <slot name="text">
 
       </slot>
@@ -26,6 +30,10 @@ export default {
      hsl() {
       const {h,s,l} = this.theme.hsla;
       return {h,s,l}
+     },
+     accent() {
+      const {h,s,l} = this.theme.accent;
+      return {h,s,l}
      }
     }
 }
@@ -39,7 +47,8 @@ export default {
   box-sizing: border-box;
   padding: 100px 0 0 0;
   @media (max-width: 1080px) {
-    height: 65vh;
+    height: 90vh;
+    padding: 200px 0 0 0;
   }
   #heroBackgroundHolder{
     z-index: -1;
@@ -48,10 +57,44 @@ export default {
       width: 100%;
       height: 80vh;
       object-fit: cover;
+      @media (max-width: 1080px) {
+        height: 65%;
+      }
+    }
+    .backgroundLight {
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+      width: 50%; 
+      object-position: 20% 30%
     }
     @media (max-width: 1080px) {
       height: 65vh;
+      .background {
+        object-position: 10% 80% !important;
+        
+      }
+      .backgroundLight {
+        width: 100%;
+        object-position: 100% -130px;
+      }
     }
+  }
+  #leftText {
+    grid-area: 1/1/1/1;
+    justify-self: start;
+    z-index: 100;
+    align-self: end;
+    margin: 0 0 6rem 0;
+    width: 50%;
+     div {
+       text-align: center;
+     }
+     @media (max-width: 1080px) {
+       place-self: center;
+       margin: 0 0 4rem 0;
+        width: 100%;
+     }
   }
   #heroText{
     grid-area: 1/1/1/1;

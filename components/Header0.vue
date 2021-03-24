@@ -50,6 +50,7 @@ export default {
   @media (max-width: 1080px) {
     flex-wrap: wrap;
     justify-content: center;
+    height: 200px;
   }
   .logo{
     width: 22vw;
@@ -73,5 +74,8 @@ export default {
   height: 70px !important;
   background: hsla(217, 20%, 10%, 0.7) !important;
   backdrop-filter: blur(5px);
+  @media (max-width: 1080px) {
+height: 100px !important;
+  }
 }
 </style>

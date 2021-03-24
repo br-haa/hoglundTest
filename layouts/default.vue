@@ -10,7 +10,7 @@
       </template>
       <template v-slot:numberBlock>
         <div id="headerContactBlock" :class="{top: !atTop}">
-          <h4 class="number">Call Now <span :style="customStyles.darkAccentText">123-456-7890</span></h4>
+          <h4 class="number"><span :class="{cnTop: !atTop}">Call Now</span><span :style="customStyles.darkAccentText">123-456-7890</span></h4>
           <DynamicButton :theme="$store.state.themes.dark">{{content.header.buttonText}}</DynamicButton>
         </div>
       </template>
@@ -19,6 +19,11 @@
   <hero1 :theme="$store.state.themes.dark">
     <template v-slot:background>
       <img class="background" :src="displayPic('backgrounds/city.png')" alt="background">
+    </template>
+    <template v-slot:leftText>
+      <div>
+        <h3>{{ content.hero.left }}</h3>
+      </div>
     </template>
     <template v-slot:text>
       <div id="heroTextGroup">
@@ -266,15 +271,28 @@ export default {
 #largestSubhead {
   max-width: 400px;
 }
+#headerContactBlock {
+  @media (max-width: 1080px) {
+    width: 100%;
+  }
+}
   .top {
     display: flex;
     justify-content: space-between;
     width: 50%;
     button {
       max-width: 400px;
+      @media (max-width: 1080px) {
+        max-width: 130px;
+        padding: 0;
+      }
     }
   }
-
+  .cnTop {
+    @media (max-width: 1080px) {
+      display: none;
+    }
+  }
 .experiencedWrapper{
   display: grid;
 
@@ -333,6 +351,7 @@ export default {
   }
   @media (max-width: 1080px) {
     grid-gap: 0;
+    width: 80%;
     ul{
       margin: 0;
       padding-left: 6%;
