@@ -1,19 +1,18 @@
 
-<template>
-</template>
+<template></template>
 
 <script>
 export default {
-    layout: 'light'
+  layout: 'light',
 }
 </script>
 
 <style lang="scss">
 html {
   scroll-behavior: smooth;
-body {
-  margin: 0;
-}
+  body {
+    margin: 0;
+  }
 }
 $textMargin: clamp(0.5rem, 1vw / 2.7, 1rem);
 h1,
@@ -37,7 +36,7 @@ h1 {
   margin: $textMargin 0 $textMargin 0;
 }
 h2 {
-  font-size: clamp(1.7rem, 10 * 1vw / 2.2, 4rem);
+  font-size: clamp(1.6rem, 10 * 1vw / 2.2, 4rem);
   font-weight: 900;
   margin: $textMargin 0 $textMargin 0;
 }
@@ -58,14 +57,13 @@ h5 {
 }
 p,
 li,
-button
-{
+button {
   margin: $textMargin 0 $textMargin 0;
   font-size: clamp(0.8rem, 10 * 1vw / 2.8, 1.2rem);
   font-weight: 500;
 }
 em {
-  font-family: IBM Plex Sans , sans-serif;
+  font-family: IBM Plex Sans, sans-serif;
   font-style: italic;
 }
 </style>
