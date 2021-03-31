@@ -1,63 +1,63 @@
 export const state = () => ({
-header: {
+  header: {
     middleText: `Free Immediate Case Evaluation`,
-    buttonText: `Get Started Today!`
-},
-hero: {
+    buttonText: `Get Started Today!`,
+  },
+  hero: {
     headline: `$0 Down Bankruptcy ™*`,
     subhead: `File Now - Pay Attorney Fees Later`,
     blerb: `Free Confidential Phone Consultation With An Experienced Bankruptcy Attorney`,
     left: `We're Here To Help`,
-    whyButton: `Why Hoglund Law? Click Here To Find Out`,
-},
-form: {
+    whyButton: `100% Free Evaluation`,
+  },
+  form: {
     headline: `No Office Visit Necessary`,
-    subhead: `Tag Line`
-},
-largestBlock: {
+    subhead: `Get A Fresh Start`,
+  },
+  largestBlock: {
     headline: `Minnesota’s Largest Bankruptcy Law Firm`,
     subhead: `70+ Years Of Combined Experience Over 47,000 Clients Trusted Us`,
-},
+  },
 
-scroller: {
+  scroller: {
     title: `Why Hoglund Law?`,
-    list:[
-    `Free Confidential Consultations`,
-    `Free 720 Program`,
-    `Free E-Book On Bankruptcy`,
-    `Affordable Payment Plans`,
-    `Over 47,000 Clients Trusted Us`,
-    `70+ Years Of Combined Experience`,
-    `Chapter 7, 13 & Business Bankruptcy`,
-    `Call Days, Evenings, Or Weekends`
-]},
+    list: [
+      `Free Confidential Consultations`,
+      `Free 720 Program`,
+      `Free E-Book On Bankruptcy`,
+      `Affordable Payment Plans`,
+      `Over 47,000 Clients Trusted Us`,
+      `70+ Years Of Combined Experience`,
+      `Chapter 7, 13 & Business Bankruptcy`,
+      `Call Days, Evenings, Or Weekends`,
+    ],
+  },
 
-experienced: {
+  experienced: {
     headline: `One Of Minnesota's Most Experienced Bankruptcy Law Firms`,
     subhead: `70+ Years Of Combined Bankruptcy Experience`,
-    reviewAmount:`220+`,
-    buttonText:`Read More`
-},
+    reviewAmount: `220+`,
+    buttonText: `Read More`,
+  },
 
-cta: {
-    buttonText: `Or Message Us`
-},
+  cta: {
+    buttonText: `Or Message Us`,
+  },
 
-fresh: {
+  fresh: {
     headline: `Get A Fresh Start?`,
     subhead: `Most clients are able to...`,
     list: [
-       `Stop collection harassment.`,
-        `Stop home foreclosure.`,
-        `Lower their monthly payments.`,
-        `Stop wage garnishment.`,
-        `Prevent auto repossession.`
-    ]
-},
+      `Stop collection harassment.`,
+      `Stop home foreclosure.`,
+      `Lower their monthly payments.`,
+      `Stop wage garnishment.`,
+      `Prevent auto repossession.`,
+    ],
+  },
 
-help: {
+  help: {
     headline: `The Call Is FREE! The Evaluation Is FREE!`,
-    subhead: `We Can Help!`
-}
-
+    subhead: `We Can Help!`,
+  },
 })

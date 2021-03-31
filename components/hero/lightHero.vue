@@ -172,8 +172,9 @@ export default {
     z-index: 105;
     display: grid;
     button {
+      padding: 1rem 2rem 1rem 2rem;
       @media (max-width: 1080px) {
-        width: 85%;
+        width: 100%;
         justify-self: center;
       }
     }
