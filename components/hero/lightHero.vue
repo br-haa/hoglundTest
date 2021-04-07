@@ -127,7 +127,11 @@ export default {
         place-self: center;
       }
       #blerb {
-        max-width: 800px;
+        max-width: 700px;
+        li {
+          font-size: clamp(1.3rem, 10 * 1vw / 2.4, 1.8rem);
+          font-weight: 800;
+        }
         @media (max-width: 1080px) {
           font-size: 0.98rem !important;
         }

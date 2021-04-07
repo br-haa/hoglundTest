@@ -20,9 +20,11 @@
             <span :class="{ cnTop: !atTop }">Call Now</span
             ><span :style="customStyles.darkAccentText"> 123-456-7890</span>
           </h4>
-          <DynamicButton :theme="$store.state.themes.dark">{{
-            content.header.buttonText
-          }}</DynamicButton>
+          <DynamicButton
+            class="showAtSmall"
+            :theme="$store.state.themes.dark"
+            >{{ content.header.buttonText }}</DynamicButton
+          >
         </div>
       </template>
     </Header0>
@@ -48,9 +50,11 @@
           <h3 id="subHead" :style="customStyles.lightText">
             {{ content.hero.subhead }}
           </h3>
-          <h4 id="blerb" :style="customStyles.lightAccentText">
-            {{ content.hero.blerb }}
-          </h4>
+          <ul id="blerb" :style="customStyles.lightAccentText">
+            <li v-for="(text, index) in content.hero.blerb" :key="text + index">
+              {{ text }}
+            </li>
+          </ul>
         </div>
       </template>
       <template v-slot:hook>
@@ -59,17 +63,6 @@
         }}</DynamicButton>
       </template>
     </lightHero>
-
-    <article id="formBlock" :style="customStyles.darkTexture">
-      <form-controller :theme="$store.state.themes.dark">
-        <h3 id="formTopText" :style="customStyles.darkText">
-          {{ content.form.headline }}
-        </h3>
-        <h2 id="formBotText" :style="customStyles.darkAccentText">
-          {{ content.form.subhead }}
-        </h2>
-      </form-controller>
-    </article>
 
     <article class="lightWrapper" :style="customStyles.lightBackground">
       <div class="topFloaterSpacer">
@@ -108,7 +101,7 @@
             {{ content.experienced.headline }}
           </h2>
           <h4 :style="customStyles.darkAccentText">
-            {{ content.experienced.subhead }}
+            {{ noWidow(content.experienced.subhead) }}
           </h4>
         </div>
         <div class="whiteLine"></div>
@@ -164,6 +157,21 @@
       </div>
     </article>
 
+    <article id="formBlock" :style="customStyles.darkTexture">
+      <form-controller :theme="$store.state.themes.dark">
+        <h3 class="number">
+          <span :class="{ cnTop: !atTop }">Call Now</span
+          ><span :style="customStyles.darkAccentText"> 123-456-7890</span>
+        </h3>
+        <h3 id="formTopText" :style="customStyles.darkText">
+          {{ noWidow(content.form.headline) }}
+        </h3>
+        <h2 id="formBotText" :style="customStyles.darkAccentText">
+          {{ noWidow(content.form.subhead) }}
+        </h2>
+      </form-controller>
+    </article>
+
     <article class="botFloaterSpacer">
       <FloatingBlock
         :iteration="2"
@@ -190,8 +198,7 @@
 
     <article id="botCta">
       <h3>
-        The Call Is FREE! <br class="showAtSmall" />
-        {{ content.help.headline }}
+        {{ noWidow(content.help.headline) }}
       </h3>
       <h2 :style="customStyles.lightAccentText">{{ content.help.subhead }}</h2>
     </article>
@@ -351,6 +358,12 @@ export default {
       }
       this.thn = now
     },
+    noWidow(text) {
+      const lastWord = text.slice(text.lastIndexOf(' ') + 1)
+      const index = text.lastIndexOf(' ')
+      text = text.substring(0, index)
+      return `${text}\xA0${lastWord}`
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.checkHeader)
@@ -391,8 +404,11 @@ export default {
 }
 .top {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 50%;
+  @media (max-width: 1080px) {
+    justify-content: space-between;
+  }
   button {
     max-width: 400px;
     @media (max-width: 1080px) {
@@ -479,6 +495,7 @@ export default {
 .botFloaterSpacer {
   display: grid;
   place-items: center;
+  margin-top: 3rem;
 }
 #botCta {
   text-align: center;

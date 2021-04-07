@@ -6,7 +6,10 @@ export const state = () => ({
   hero: {
     headline: `$0 Down Bankruptcy ™*`,
     subhead: `File Now - Pay Attorney Fees Later`,
-    blerb: `Free Confidential Phone Consultation With An Experienced Bankruptcy Attorney`,
+    blerb: [
+      `Free Confidential Phone Consultation With An Experienced Bankruptcy Attorney`,
+      `47,000 clients trusted us`,
+    ],
     left: `We're Here To Help`,
     whyButton: `100% Free Evaluation`,
   },
@@ -23,7 +26,7 @@ export const state = () => ({
     title: `Why Hoglund Law?`,
     list: [
       `Free Confidential Consultations`,
-      `Free 720 Program`,
+      `Free Credit Repair Program`,
       `Free E-Book On Bankruptcy`,
       `Affordable Payment Plans`,
       `Over 47,000 Clients Trusted Us`,
@@ -36,7 +39,7 @@ export const state = () => ({
   experienced: {
     headline: `One Of Minnesota's Most Experienced Bankruptcy Law Firms`,
     subhead: `70+ Years Of Combined Bankruptcy Experience`,
-    reviewAmount: `220+`,
+    reviewAmount: `100+`,
     buttonText: `Read More`,
   },
 
